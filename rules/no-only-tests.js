@@ -56,15 +56,10 @@ module.exports = {
 
         var parentName = parentObject.name;
 
-        function fix(fixer) {
-          return fixer.removeRange([node.range[0] - 1, node.range[1]]);
-        }
-
         if (parentName != null && block.indexOf(parentName) != -1) {
           context.report({
             node,
-            message: parentName + '.' + node.name + ' not permitted',
-            fix
+            message: parentName + '.' + node.name + ' not permitted'
           });
         }
 
@@ -73,8 +68,7 @@ module.exports = {
         if (parentParentName != null && block.indexOf(parentParentName) != -1) {
           context.report({
             node,
-            message: parentParentName + '.' + node.name + ' not permitted',
-            fix
+            message: parentParentName + '.' + node.name + ' not permitted'
           });
         }
       },
